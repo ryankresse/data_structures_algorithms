@@ -5,7 +5,6 @@ var app = express();
 var multer = require('multer');
 var fs = require('fs');
 var childP = require('child_process');
-//var connectedComps = require('./graphs/connectedComponents.js');
 
 app.use(express.static('public'));
 app.use(multer({dest:'./temp/'}));
@@ -34,20 +33,6 @@ app.post('/addFile', function (req, res) {
 	});
 
 
-	/*
-	var child = childP.fork('graphs/connectedComponents.js', [pathToFile]);
-	child.stdout.on('data', function (data) {
-		console.log(data);	
-		res.status(200).send("Thanks");
-		child.kill();
-	});
-
-	child.stderr.on('data', function (data) {
-		console.log(data);
-		child.kill();
-	});
-
-	*/
 });
 
 app.listen(3000, function () {
