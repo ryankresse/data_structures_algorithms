@@ -6,19 +6,33 @@ var graph = [ [1,2],
 	      [3,4]
 	    ];
 
+var graph2 = [ [2,4],
+	      [3],
+	      [0,4],
+	      [1],
+	      [0,2,6,8],
+	      [7,9], 
+	      [4,8],
+	      [5,9],
+	      [6,4],
+	      [5,7]
+	    ];
+
 
 var fileReader = require('./../fileReader');
 var file = process.argv[2];
 var startVertex = process.argv[3];
 var endVertex = process.argv[4];
 var data = [];
+exports.shortestPath = shortestPath;
 
-fileReader(file, makeData)
-	.then(function () {
-		//console.log(data);
-		console.log(shortestPath(data, startVertex, endVertex));
-	}); 	
-
+if (process.env.NODE_ENV !== "test") {
+	fileReader(file, makeData)
+		.then(function () {
+			//console.log(data);
+			console.log(shortestPath(data, startVertex, endVertex));
+		}); 	
+}
 
 
 
@@ -36,24 +50,33 @@ function makeData(line) {
 	}
 }
 function shortestPath(g, v, v2) {
-	v = Number(v);
-	v2 = Number(v2);
+	if (v.length && v2.length) {
+		v = Number(v);
+		v2 = Number(v2);
+	}
 	
+	if (v === v2) {
+		return 0;
+	}
+
 	function areInputsinvalid (g, v, v2) {
 
 		var notWholeNum = /[^\d+]/;
-		if (notWholeNum.test(v.toString())  ||
+		if (!g.length) {
+			return "graph can't be empty";
+		}
+		if ( !v.toString().length           ||
+			 !v2.toString().length          ||
+			notWholeNum.test(v.toString())  ||
 		    notWholeNum.test(v2.toString()) ||
-		    v > g.length - 1   		    ||
-		    v2 > g.length -1   		    ||
+		    v > g.length - 1   		        ||
+		    v2 > g.length -1   		        ||
 		    v2 < 0             	            ||
 		    v < 0
        		   ) {
 			return "invalid vertex";
 		}
-		if (!g.length) {
-			return "graph can't be empty";
-		}
+		
 		return false;
 	}	
 	
@@ -101,7 +124,7 @@ function shortestPath(g, v, v2) {
 	}						
 		
 
-	return "There's no path from "  + v + " to " + v2 + ".";
+	return "There\'s no path from "  + v + " to " + v2 + ".";
 
 
 }

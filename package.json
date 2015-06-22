@@ -1,0 +1,23 @@
+{
+  "devDependencies": {
+    "async": "",
+    "body-parser": "",
+    "chai": "^3.0.0",
+    "connect": "",
+    "cookie-parser": "",
+    "express": "",
+    "express-session": "",
+    "line-reader": "",
+    "mocha": "^2.2.5",
+    "q": ""
+  },
+   "scripts": {
+    "test": "NODE_ENV=test mocha"
+  },
+  "dependencies": {
+    "body-parser": "^1.13.1",
+    "express": "^4.12.4",
+    "line-reader": "^0.2.4",
+    "multer": "^0.1.8"
+  }
+}
