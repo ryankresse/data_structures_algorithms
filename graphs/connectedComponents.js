@@ -2,16 +2,15 @@
 var fileReader = require('./../fileReader');
 var file = process.argv[0];
 var data = [];
+exports.connectedComps = connectedComps;
 
-fileReader(process.argv[2], makeData)
-	.then(function () {
-	//	console.log(process.argv);
-		console.log(connectedComps(data));
-	}); 	
-
-
-
-
+if (process.env.NODE_ENV !== "test") {
+	fileReader(process.argv[2], makeData)
+		.then(function () {
+		//	console.log(process.argv);
+			console.log(connectedComps(data));
+		}); 	
+}
 
 function makeData(line) {
 	var regex = /\d+/g;
@@ -25,22 +24,6 @@ function makeData(line) {
 	data.push(arr);
 	}
 }
-
-
-
-var graph = [ [2,4],
-	      [3],
-	      [0,4],
-	      [1],
-	      [0,2,6,8],
-	      [7,9], 
-	      [4,8],
-	      [5,9],
-	      [6,4],
-	      [5,7]
-	    ];
-
-
 
 
 function connectedComps(g) {
@@ -93,13 +76,10 @@ function connectedComps(g) {
 		}
 	return explored;
 	}
+	
 	return connComps;
 
 }
 
-
-		
-	
-	
 
 
