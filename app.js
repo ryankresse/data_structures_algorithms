@@ -35,6 +35,47 @@ app.post('/addFile', function (req, res) {
 
 });
 
+
+app.post('/shortestPath', function (req, res) {
+	console.log(req.body);
+	console.log(req.files);
+	var pathToFile = req.files.filedata.path;	
+	var startVertex = Number(req.body.v1);
+	var endVertex = Number(req.body.v2);
+	console.log(pathToFile);
+
+	var child = childP.exec('node graphs/shortestPath.js ' + pathToFile + " " + startVertex + " " + endVertex, function (err, stdout, stderr) {
+		if (err) {
+			console.log(err);	
+			res.status(400).send(err) 
+		
+		}
+		if (stderr) {
+			console.log(stderr);	
+			res.status(400).send(stderr) 
+		} 
+		if (stdout) {
+			console.log(stdout);	
+			res.status(200).send(stdout);
+		}	
+		fs.unlink(pathToFile, function (err){
+			if (err) console.log(err);
+		});
+
+	});
+
+
+});
+
+
+
+
+
+
+
+
+
+
 app.listen(3000, function () {
 	console.log('listening on 3000');
 });
