@@ -1,4 +1,4 @@
-var connectedComps = require('./../graphs/connectedComponents').connectedComps;
+var connectedComps = require('./../lib/graphs/connectedComponents').connectedComps;
 var expect = require('chai').expect
 
 

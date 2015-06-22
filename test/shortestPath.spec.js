@@ -1,4 +1,4 @@
-var shortestPath = require('./../graphs/shortestPath').shortestPath;
+var shortestPath = require('./../lib/graphs/shortestPath').shortestPath;
 var expect = require('chai').expect
 
 var graph = [ [1,2],
