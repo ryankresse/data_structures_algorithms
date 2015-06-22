@@ -1,24 +1,3 @@
-var graph = [ [1,2],
-	      [0,3],
-	      [0,4],
-	      [1, 4, 5],
-	      [2,3,5],
-	      [3,4]
-	    ];
-
-var graph2 = [ [2,4],
-	      [3],
-	      [0,4],
-	      [1],
-	      [0,2,6,8],
-	      [7,9], 
-	      [4,8],
-	      [5,9],
-	      [6,4],
-	      [5,7]
-	    ];
-
-
 var fileReader = require('./../fileReader');
 var file = process.argv[2];
 var startVertex = process.argv[3];
