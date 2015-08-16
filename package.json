@@ -8,10 +8,11 @@
     "express": "",
     "express-session": "",
     "line-reader": "",
+    "lodash": "^3.10.1",
     "mocha": "^2.2.5",
     "q": ""
   },
-   "scripts": {
+  "scripts": {
     "test": "NODE_ENV=test mocha"
   },
   "dependencies": {
