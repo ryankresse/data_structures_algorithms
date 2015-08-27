@@ -1,3 +1,8 @@
+/*
+Algorithm to determine if a graph is bipartite.
+*/
+
+
 'use strict';
 var makeGraph = require('../../lib/graphs/helpers/makeGraph');
 var initAsUnexplored = require('../../lib/graphs/helpers/initVerticesAsUnexplored');
