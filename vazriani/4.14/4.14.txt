@@ -1,0 +1,8 @@
+a e:4 b:1
+b f:6 c:2 g:6
+c g:2 d:1
+d g:1 h:4
+e f:5
+f a:8
+g f:1
+h g:1
